@@ -293,7 +293,7 @@ pipeline:
       - TEST_SERVER_URL=http://server
       - TEST_FEDERATION=${TEST_FEDERATION}
     commands:
-      - if [[ "${TEST_FEDERATION}" != "" ]] && export TEST_SERVER_FED_URL=http://federated
+      - if [[ "${TEST_FEDERATION}" != "" ]]; then export TEST_SERVER_FED_URL="http://federated"; fi
       - ./tests/drone/test-acceptance.sh --remote
     when:
       matrix:
@@ -311,7 +311,7 @@ pipeline:
       - MAILHOG_HOST=email
       - TEST_FEDERATION=${TEST_FEDERATION}
     commands:
-      - if [[ "${TEST_FEDERATION}" != "" ]] && export TEST_SERVER_FED_URL=http://federated
+      - if [[ "${TEST_FEDERATION}" != "" ]]; then export TEST_SERVER_FED_URL="http://federated"; fi
       - ./tests/drone/test-acceptance.sh --remote
     when:
       matrix:
